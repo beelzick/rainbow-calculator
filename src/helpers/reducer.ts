@@ -1,13 +1,9 @@
-interface Payload {
-    digit?: string
-    operator?: string
-}
-
-
-export interface Action {
-    type: string
-    payload?: Payload
-}
+export type Action =
+    | { type: 'ADD_DIGIT', payload: { digit: string } }
+    | { type: 'CLEAR' }
+    | { type: 'OPERATOR', payload: { operator: string } }
+    | { type: 'GET_RESULT' }
+    | { type: 'DELETE_DIGIT' }
 
 export interface State {
     current: string
@@ -19,7 +15,7 @@ export interface State {
 export const initialState: State = {
     current: '',
     previous: '',
-    operator: ''
+    operator: '',
 }
 
 const result = ({ current, previous, operator }: State) => {
@@ -46,21 +42,21 @@ const result = ({ current, previous, operator }: State) => {
     return returnedResult.toString()
 }
 
-const reducer = (state: State, { type, payload }: Action) => {
-    switch (type) {
+const reducer = (state: State, action: Action) => {
+    switch (action.type) {
         case 'ADD_DIGIT':
             if (state.reset) {
                 return {
                     ...state,
-                    current: payload!.digit,
+                    current: action.payload!.digit,
                     reset: false
                 }
             }
-            if (payload!.digit === '0' && state.current === '0') return state
-            if (payload!.digit === '.' && state.current.includes('.')) return state
+            if (action.payload!.digit === '0' && state.current === '0') return state
+            if (action.payload!.digit === '.' && state.current.includes('.')) return state
             return {
                 ...state,
-                current: `${state.current}${payload!.digit}`
+                current: `${state.current}${action.payload!.digit}`
             }
         case 'CLEAR':
             return initialState
@@ -69,7 +65,7 @@ const reducer = (state: State, { type, payload }: Action) => {
             if (!state.previous) {
                 return {
                     ...state,
-                    operator: payload!.operator,
+                    operator: action.payload!.operator,
                     previous: state.current,
                     current: ''
                 }
@@ -77,13 +73,13 @@ const reducer = (state: State, { type, payload }: Action) => {
             if (!state.current) {
                 return {
                     ...state,
-                    operator: payload!.operator
+                    operator: action.payload!.operator
                 }
             }
             return {
                 ...state,
                 previous: result(state),
-                operator: payload!.operator,
+                operator: action.payload!.operator,
                 current: ''
             }
         case 'GET_RESULT':
