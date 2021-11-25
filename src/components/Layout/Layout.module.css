@@ -1,0 +1,14 @@
+@import '../../styles/vars.css';
+
+.main {
+    min-height: calc(100vh - 54px);
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageContainer {
+    background-color: var(--mode-color)
+}

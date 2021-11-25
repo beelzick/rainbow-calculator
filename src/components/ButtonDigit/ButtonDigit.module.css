@@ -1,0 +1,21 @@
+.button {
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+    background-color: rgba(22, 26, 29, 0.6);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color:rgba(22, 26, 29, 0.45);
+}
+
+.double {
+    width: 170px;
+}

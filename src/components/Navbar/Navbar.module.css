@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    height: 54px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+    justify-content: space-between;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

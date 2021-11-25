@@ -1,0 +1,23 @@
+.container {
+    min-height: 120px;
+    background-color: #161a1d;
+    box-sizing: border-box;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px ;
+    padding: 15px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous {
+    color: rgba(255,255,255, .75)
+}
+
+.current {
+    color: #FFF;
+    font-size: 2.5rem;
+}
