@@ -1,6 +1,7 @@
 import { AppContext } from '../../App'
 import styles from './ButtonDigit.module.css'
 import { useContext } from 'react'
+
 interface Props {
     digit: string
 }

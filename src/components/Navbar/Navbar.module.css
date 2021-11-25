@@ -1,3 +1,5 @@
+@import '../../styles/vars.css';
+
 .container {
     display: flex;
     height: 54px;
@@ -11,7 +13,7 @@
 .header {
     font-size: 24px;
     font-weight: 700;
-    background: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    background: var(--theme-color);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

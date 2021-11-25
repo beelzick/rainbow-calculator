@@ -11,9 +11,9 @@ const Buttons = () => {
         <div className={styles.container}>
             {buttonsContent(dispatch).map(({ buttonType, variant, operator, onClick, digit }) => (
                 buttonType === 'operator' ? (
-                    <ButtonOperator variant={variant} operator={operator!} onClick={onClick} />
+                    <ButtonOperator key={operator!} variant={variant} operator={operator!} onClick={onClick} />
                 ) : (
-                    <ButtonDigit digit={digit!} />
+                    <ButtonDigit key={digit!} digit={digit!} />
                 )
             ))}
         </div >

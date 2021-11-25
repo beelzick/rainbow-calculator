@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNode, useContext } from 'react'
+import { ThemeContext } from '../../../App'
 import styles from './Body.module.css'
 
 interface Props {
@@ -6,8 +7,9 @@ interface Props {
 }
 
 const Body = ({ children }: Props) => {
+    const { theme } = useContext(ThemeContext)
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ background: theme }}>
             {children}
         </div>
     )

@@ -15,6 +15,16 @@ interface DarkContextType {
     setIsDark: Dispatch<SetStateAction<boolean>>
 }
 
+interface ThemeContextType {
+    theme: string
+    setTheme: Dispatch<SetStateAction<string>>
+}
+
+export const ThemeContext = createContext<ThemeContextType>({
+    theme: 'linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)',
+    setTheme: () => { }
+})
+
 export const AppContext = createContext<AppContextType>({
     state: initialState,
     dispatch: () => null
@@ -28,16 +38,20 @@ export const DarkContext = createContext<DarkContextType>({
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState)
     const [isDark, setIsDark] = useState<boolean>(false)
+    const [theme, setTheme] = useState<string>('linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)')
+
     return (
         <DarkContext.Provider value={{ isDark, setIsDark }}>
-            <Layout>
-                <AppContext.Provider value={{ state, dispatch }}>
-                    <Body>
-                        <Screen />
-                        <Buttons />
-                    </Body>
-                </AppContext.Provider>
-            </Layout>
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+                <Layout>
+                    <AppContext.Provider value={{ state, dispatch }}>
+                        <Body>
+                            <Screen />
+                            <Buttons />
+                        </Body>
+                    </AppContext.Provider>
+                </Layout>
+            </ThemeContext.Provider>
         </DarkContext.Provider>
     )
 }

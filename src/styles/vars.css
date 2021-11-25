@@ -1,3 +1,4 @@
 :root {
-    --mode-color: #fff
+    --mode-color: #fff;
+    --theme-color: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
 }
