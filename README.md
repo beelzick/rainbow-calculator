@@ -1,4 +1,4 @@
-# [Rainbow Calculator :rainbow:][link]
+# [Rainbow Calculator][link] :rainbow:
 
 ## General Info
 
